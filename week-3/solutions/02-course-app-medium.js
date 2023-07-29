@@ -1,7 +1,9 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
+const cors = require('cors');
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
 let ADMINS = [];
@@ -139,5 +141,5 @@ app.get('/users/purchasedCourses', authenticateJwt, (req, res) => {
 });
 
 app.listen(3000, () => {
-  console.log('Server is listening on port 3000');
+  console.log(`Server is listening on port 3000`);
 });
